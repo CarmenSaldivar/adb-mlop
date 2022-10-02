@@ -101,7 +101,7 @@ jobs:
         with:
           creds: "${{ secrets.AZURE_CREDENTIALS }}"
           cluster-name: ${{ secrets.KUBERNETES_NAME }}
-          resource-group: ${{ secrets.KUBERNETES_RESOURCE_GROUP }}
+          resource-group: "rg-mcsm-cus-jovd"
 
       - name: Create image pull secret for ACR
         uses: azure/k8s-create-secret@v1
