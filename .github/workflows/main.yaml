@@ -99,7 +99,7 @@ jobs:
         run: az account set -s "${{ secrets.SUBSCRIPTION_ID }}"
 
       - name: Set target Kubernetes cluster
-        uses: azure/aks-set-context@v1
+        uses: azure/aks-set-context@v3
         with:
           cluster-name: ${{ secrets.KUBERNETES_NAME }}
           resource-group: ${{ secrets.KUBERNETES_RESOURCE_GROUP }}
