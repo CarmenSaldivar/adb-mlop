@@ -18,7 +18,7 @@ jobs:
      - name: Updates repo in Databrick workspace
        run: |
         # Update repo
-        curl -X GET -H "Authorization: Bearer ${DATABRICKS_TOKEN}" "${DATABRICKS_HOST}"/api/2.0/repos/"${{ secrets.DB_REPO_ID_'${{github.ref_name}}' }}" -d '{ "branch": "${{github.ref_name}}"}'
+        curl -X GET -H "Authorization: Bearer ${DATABRICKS_TOKEN}" "${DATABRICKS_HOST}"/api/2.0/repos/"${{secrets.DB_REPO_ID_'[github.ref_name]'}}" -d '{ "branch": "${{github.ref_name}}"}'
   
   build:
     name: Build
