@@ -6,9 +6,24 @@ env:
   PROJECT_NAME: employee-attrition
 
 jobs:
+  training:
+    name: training
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+     - name: Updates repo in Databrick workspace
+       run: |
+        # Update repo
+        curl -X GET -H "Authorization: Bearer ${DATABRICKS_TOKEN}" ${DATABRICKS_HOST}/api/2.0/repos/${secrets.DB_REPO_ID_MAIN} -d '{ "branch": "${{github.ref_name}}"}'
+  
   build:
     name: Build
     runs-on: ubuntu-latest
+    needs: training
 
     defaults:
       run:
