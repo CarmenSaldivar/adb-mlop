@@ -19,7 +19,9 @@ jobs:
        run: |
         # Update repo
         curl -X GET -H "Authorization: Bearer ${{ secrets.DATABRICKS_TOKEN }}" "${{ secrets.DATABRICKS_HOST }}"/api/2.0/repos/"${{secrets.DB_REPO_ID_[github.ref_name]}}" -d '{ "branch": "${{github.ref_name}}"}'
-  
+        echo "${{ secrets.DATABRICKS_HOST }}"/api/2.0/repos/"${{secrets.DB_REPO_ID_[github.ref_name]}}"
+        echo '{ "branch": "${{github.ref_name}}"}'
+        
   build:
     name: Build
     runs-on: ubuntu-latest
