@@ -3,7 +3,7 @@ name: Build-Deploy
 on: workflow_dispatch
 
 env:
-  PROJECT_NAME: employee-attrition
+  PROJECT_NAME: employee-attrition-demo
 
 jobs:
   training:
